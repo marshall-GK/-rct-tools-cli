@@ -1,0 +1,28 @@
+const chalk = require("chalk");
+const package = require("../package.json");
+const { whiteChalk, emptyLog } = require("./utils");
+
+const commands = [
+  { command: 'fc', description: 'For Functional Component' },
+  { command: 'f', description: 'For simple function file' },
+  { command: 'h', description: 'For hook file' },
+  { command: '--help or -h', description: 'For Help' },
+  { command: '-v', description: 'For version' },
+];
+
+const usage = [
+  { command: 'fc', Usage: 'rcli fc <component_name> <relative_path>' },
+  { command: 'f', Usage: 'rcli f <file_name> <relative_path>' },
+  { command: 'h', Usage: 'rcli h <component_name> <relative_path>' },
+]
+
+const renderHelp = () => {
+  console.table(commands);
+  emptyLog();
+  console.table(usage);
+  emptyLog();
+};
+
+module.exports = {
+  renderHelp,
+};

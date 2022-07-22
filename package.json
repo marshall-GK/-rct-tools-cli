@@ -1,0 +1,40 @@
+{
+  "name": "@react/cli",
+  "version": "0.0.1",
+  "description": "A cli based useful package for react app to create components and other files.",
+  "main": "./lib/rcli.js",
+  "bin": {
+    "rcli": "./bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publishNext": "npm publish --access=public next",
+    "publishBeta": "npm publish --access=public --tag beta",
+    "publishLatest": "npm publish --access=public --tag latest"
+  },
+  "author": {
+    "name": "marshall-GK",
+    "url": "https://github.com/marshall-GK"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marshall-GK/-react-cli.git"
+  },
+  "keywords": [
+    "cli",
+    "react",
+    "functional components",
+    "hooks",
+    "components",
+    "create",
+    "files",
+    "terminal"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "4.1.2",
+    "fs-extra": "10.0.0",
+    "inquirer": "8.2.1",
+    "replace": "1.2.1"
+  }
+}
