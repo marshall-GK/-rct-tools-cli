@@ -1,5 +1,5 @@
 {
-  "name": "@react/cli",
+  "name": "@react-new-test/cli",
   "version": "1.0.0",
   "description": "A cli based useful package for react app to create components and other files.",
   "main": "./lib/rcli.js",
