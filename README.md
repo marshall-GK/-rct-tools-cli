@@ -1,18 +1,18 @@
-# rtwister
-**rtwister** is a cli tool built for react apps to generate react components and other useful seperate files (eg. hooks).
+# rhelper
+**rhelper** is a cli tool built for react apps to generate react components and other useful seperate files (eg. hooks).
 
 ###  Installation/Run
 ------------
 
-`npx rtwister <command> <relativePath>`
+`npx rhelper <command> <relativePath>`
 
 or
 
-`npm install rtwister -g` or `yarn global add rtwister`
+`npm install rhelper -g` or `yarn global add rhelper`
 
 ### Usage
 ------------
-To use **rtwister** just type `rtwister <commands>` in your terminal.
+To use **rhelper** just type `rhelper <commands>` in your terminal.
 
 | Commands | Description |
 | ------------ | ------------ |
@@ -29,14 +29,14 @@ Example
 
 | Commands | Example |
 | ------------ | ------------ |
-| fc | `rtwister fc <component_name> <relative_path>` |
-| f | `rtwister f <function_name> <relative_path>` |
-| h | `rtwister h <hook_name> <relative_path>` |
+| fc | `rhelper fc <component_name> <relative_path>` |
+| f | `rhelper f <function_name> <relative_path>` |
+| h | `rhelper h <hook_name> <relative_path>` |
 
 
 ##### Functional component
 
-`rtwister fc Boo ./Foo/Faa`, this command will generate required scalable files for a functional component.
+`rhelper fc Boo ./Foo/Faa`, this command will generate required scalable files for a functional component.
 
 ```
 |-- /Foo
@@ -69,7 +69,7 @@ Example
 - Before adding something new in between will make you think twice.
 - Managing your components can become a mess.
 
-After using **rtwister**
+After using **rhelper**
 - Your FC will split into seperate files.
 - Less line of a code in a file
 - Business logic, styles and view will be in a seperate file.

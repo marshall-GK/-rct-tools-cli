@@ -2,9 +2,9 @@
   "name": "@rct-tools/cli",
   "version": "0.0.1",
   "description": "A cli based useful package for react app to create components and other files.",
-  "main": "./lib/rcli.js",
+  "main": "./lib/rhelper.js",
   "bin": {
-    "rcli": "bin/index.js"
+    "rhelper": "bin/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
