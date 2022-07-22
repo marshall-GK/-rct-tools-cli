@@ -1,5 +1,5 @@
 {
-  "name": "@react/cli",
+  "name": "@react-tool/cli",
   "version": "0.0.1",
   "description": "A cli based useful package for react app to create components and other files.",
   "main": "./lib/rcli.js",
@@ -15,7 +15,7 @@
   "author": "marshall-GK (https://github.com/marshall-GK)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marshall-GK/-react-cli.git"
+    "url": "git+https://github.com/marshall-GK/-react-tool-cli.git"
   },
   "keywords": [
     "cli",
@@ -35,9 +35,9 @@
     "replace": "1.2.1"
   },
   "bugs": {
-    "url": "https://github.com/marshall-GK/-react-cli/issues"
+    "url": "https://github.com/marshall-GK/-react-tool-cli/issues"
   },
-  "homepage": "https://github.com/marshall-GK/-react-cli#readme",
+  "homepage": "https://github.com/marshall-GK/-react-tool-cli#readme",
   "directories": {
     "lib": "lib"
   }
