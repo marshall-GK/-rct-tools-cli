@@ -1,5 +1,5 @@
 {
-  "name": "@react-helper/cli",
+  "name": "rhelper",
   "version": "0.0.1",
   "description": "A cli based useful package for react app to create components and other files.",
   "main": "./lib/rhelper.js",
