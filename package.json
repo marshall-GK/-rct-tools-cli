@@ -1,6 +1,6 @@
 {
   "name": "@rct-tools/cli",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A cli based useful package for react app to create components and other files.",
   "main": "./lib/rcli.js",
   "bin": {
