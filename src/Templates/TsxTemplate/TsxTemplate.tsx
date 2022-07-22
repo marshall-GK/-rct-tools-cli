@@ -1,6 +1,6 @@
 import * as React from "react";
 import withStyles from "react-jss";
-import TsxTemplateView from "./TsxTemplate.View";
+import TsxTemplateView from "./TsxTemplate.view";
 import useModel from "./TsxTemplate.model";
 import useStyles from "./TsxTemplate.styles";
 import { PropTypes } from "./TsxTemplate.types";
