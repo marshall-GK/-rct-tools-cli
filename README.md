@@ -1,18 +1,18 @@
-# rhelper
-**rhelper** is a cli tool built for react apps to generate react components and other useful seperate files (eg. hooks).
+# react-construct
+**react-construct** is a cli tool built for react apps to generate react components and other useful seperate files (eg. hooks).
 
 ###  Installation/Run
 ------------
 
-`npx rhelper <command> <relativePath>`
+`npx react-construct <command> <relativePath>`
 
 or
 
-`npm install rhelper -g` or `yarn global add rhelper`
+`npm install react-construct -g` or `yarn global add react-construct`
 
 ### Usage
 ------------
-To use **rhelper** just type `rhelper <commands>` in your terminal.
+To use **react-construct** just type `react-construct <commands>` in your terminal.
 
 | Commands | Description |
 | ------------ | ------------ |
@@ -29,14 +29,14 @@ Example
 
 | Commands | Example |
 | ------------ | ------------ |
-| fc | `rhelper fc <component_name> <relative_path>` |
-| f | `rhelper f <function_name> <relative_path>` |
-| h | `rhelper h <hook_name> <relative_path>` |
+| fc | `react-construct fc <component_name> <relative_path>` |
+| f | `react-construct f <function_name> <relative_path>` |
+| h | `react-construct h <hook_name> <relative_path>` |
 
 
 ##### Functional component
 
-`rhelper fc Boo ./Foo/Faa`, this command will generate required scalable files for a functional component.
+`react-construct fc Boo ./Foo/Faa`, this command will generate required scalable files for a functional component.
 
 ```
 |-- /Foo
@@ -69,7 +69,7 @@ Example
 - Before adding something new in between will make you think twice.
 - Managing your components can become a mess.
 
-After using **rhelper**
+After using **react-construct**
 - Your FC will split into seperate files.
 - Less line of a code in a file
 - Business logic, styles and view will be in a seperate file.
