@@ -1,10 +1,10 @@
 {
-  "name": "rhelper",
+  "name": "react-construct",
   "version": "0.0.1",
   "description": "A cli based useful package for react app to create components and other files.",
-  "main": "./lib/rhelper.js",
+  "main": "./lib/index.js",
   "bin": {
-    "rhelper": "bin/index.js"
+    "react-contruct": "bin/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,10 +12,10 @@
     "publishBeta": "npm publish --access=public --tag beta",
     "publishLatest": "npm publish --access=public --tag latest"
   },
-  "author": "marshall-GK (https://github.com/marshall-GK)",
+  "author": "Gaurav Kumar (https://github.com/marshall-GK)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/marshall-GK/rhelper"
+    "url": "https://github.com/marshall-GK/react-construct"
   },
   "keywords": [
     "cli",
@@ -35,9 +35,9 @@
     "replace": "1.2.1"
   },
   "bugs": {
-    "url": "https://github.com/marshall-GK/rhelper/issues"
+    "url": "https://github.com/marshall-GK/react-construct/issues"
   },
-  "homepage": "https://github.com/marshall-GK/rhelper#readme",
+  "homepage": "https://github.com/marshall-GK/react-construct#readme",
   "directories": {
     "lib": "lib"
   }
