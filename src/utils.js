@@ -11,7 +11,58 @@ const {
   remove,
 } = require("fs-extra");
 const replace = require("replace");
+
+const allCommands = require('./allcomands');
+
 const { platform } = process;
+
+const displayError = (err) => {
+  switch (err.code || err) {
+    case "EEXIST": {
+      boldRedChalk("[ERROR]: Aborting, directory already present.");
+      process.exit(1);
+    }
+    case "ENOENT": {
+      boldRedChalk("[ERROR]: Aborting, invalid path, please check.");
+      process.exit(1);
+    }
+    default:
+      boldRedChalk(err);
+      process.exit(1);
+  }
+};
+
+const boldRedChalk = (data) => {
+  console.log(chalk.red.bold(data));
+};
+
+const yellowChalk = (data) => {
+  console.log(chalk.yellow(data));
+};
+
+const boldYellowChalk = (data) => {
+  console.log(chalk.yellow.bold(data));
+};
+
+const boldGreenChalk = (data) => {
+  console.log(chalk.green.bold(data));
+};
+
+const boldBlueChalk = (data) => {
+  console.log(chalk.blue.bold(data));
+};
+
+const boldCyanChalk = (data) => {
+  console.log(chalk.cyan.bold(data));
+};
+
+const whiteChalk = (data) => {
+  console.log(chalk.white(data));
+};
+
+const emptyLog = () => {
+  console.log("");
+};
 
 const getConfigFileData = () => {};
 
@@ -104,53 +155,10 @@ const modifyPathUrl = (path) => {
   }
 };
 
-const displayError = (err) => {
-  switch (err.code || err) {
-    case "EEXIST": {
-      boldRedChalk("[ERROR]: Aborting, directory already present.");
-      process.exit(1);
-    }
-    case "ENOENT": {
-      boldRedChalk("[ERROR]: Aborting, invalid path, please check.");
-      process.exit(1);
-    }
-    default:
-      boldRedChalk(err);
-      process.exit(1);
-  }
-};
-
-const boldRedChalk = (data) => {
-  console.log(chalk.red.bold(data));
-};
-
-const yellowChalk = (data) => {
-  console.log(chalk.yellow(data));
-};
-
-const boldYellowChalk = (data) => {
-  console.log(chalk.yellow.bold(data));
-};
-
-const boldGreenChalk = (data) => {
-  console.log(chalk.green.bold(data));
-};
-
-const boldBlueChalk = (data) => {
-  console.log(chalk.blue.bold(data));
-};
-
-const boldCyanChalk = (data) => {
-  console.log(chalk.cyan.bold(data));
-};
-
-const whiteChalk = (data) => {
-  console.log(chalk.white(data));
-};
-
-const emptyLog = () => {
-  console.log("");
-};
+const getAllCommands = () => {
+  const allCommandsObj = Object.create(allCommands);
+  console.log(allCommandsObj);
+}
 
 module.exports = {
   getComponentName,
@@ -169,4 +177,5 @@ module.exports = {
   boldCyanChalk,
   whiteChalk,
   getCamleCase,
+  getAllCommands
 };

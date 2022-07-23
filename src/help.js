@@ -1,6 +1,6 @@
 const chalk = require("chalk");
 const package = require("../package.json");
-const { whiteChalk, emptyLog } = require("./utils");
+const { whiteChalk, emptyLog, getAllCommands } = require("./utils");
 
 const commands = [
   { command: 'fc', description: 'For Functional Component' },
@@ -17,6 +17,7 @@ const usage = [
 ]
 
 const renderHelp = () => {
+  getAllCommands();
   console.table(commands);
   emptyLog();
   console.table(usage);
