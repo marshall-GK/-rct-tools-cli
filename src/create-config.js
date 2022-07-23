@@ -40,7 +40,7 @@ const checkConfigFileData = (fileData) => {
   if (fileData) {
     try {
       if (Array.isArray(fileData)) {
-        throw new Error("rcli.json file should have json data");
+        throw new Error("react-construct.json file should have json data");
       }
       const keys = Object.keys(fileData);
       return fileData
@@ -57,7 +57,7 @@ const checkConfigFileData = (fileData) => {
 const createConfigFile = async () => {
   try {
     const obj = await prompt(getQuestions());
-    outputFileSync('rcli.json', JSON.stringify(obj, null, 2))
+    outputFileSync('react-construct.json', JSON.stringify(obj, null, 2))
     return true;
   } catch (err) {
     boldRedChalk(err)

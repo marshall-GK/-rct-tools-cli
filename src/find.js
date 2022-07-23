@@ -19,14 +19,14 @@ const verifyConfigFileLocation = () => {
   try {
     accessSync("./package.json", constants.R_OK);
     try {
-      accessSync("./rcli.json", constants.R_OK);
+      accessSync("./react-construct.json", constants.R_OK);
       return {
         isSuccess: true,
       };
     } catch (err) {
       boldRedChalk(err);
       boldCyanChalk(
-        "It looks like this is the first time that you're running rcli within this project."
+        "It looks like this is the first time that you're running react-construct within this project."
       );
       return {
         fileMissing: true,
@@ -35,7 +35,7 @@ const verifyConfigFileLocation = () => {
   } catch (err) {
     boldRedChalk(err);
     boldRedChalk(
-      "[ERROR]: Please make sure that you're running the rcli commands from the root level of your React project"
+      "[ERROR]: Please make sure that you're running the react-construct commands from the root level of your React project"
     );
     return {
       invalidPath: true,
@@ -47,7 +47,7 @@ const verifyConfigFileData = async () => {
   try {
     const fileStatus = verifyConfigFileLocation();
     if (fileStatus.isSuccess) {
-      const fileData = readFileSync("./rcli.json");
+      const fileData = readFileSync("./react-construct.json");
       const isDataPresent = fileData.toJSON();
       if(isDataPresent.data.length) {
         const data = JSON.parse(fileData);
@@ -74,24 +74,24 @@ const getConfigFilePath = async () => {
   try {
     accessSync("./package.json", constants.R_OK);
     try {
-      accessSync("./rcli.json", constants.R_OK);
+      accessSync("./react-construct.json", constants.R_OK);
       try {
-        const fileData = readFileSync("./rcli.json");
+        const fileData = readFileSync("./react-construct.json");
         const currentConfigFile = JSON.parse(fileData);
         checkConfigFileData(currentConfigFile);
       } catch (err) {
-        boldRedChalk("It looks like rcli.json file data is corrupted");
+        boldRedChalk("It looks like react-construct.json file data is corrupted");
         return process.exit(1);
       }
     } catch (err) {
       boldCyanChalk(
-        "It looks like this is the first time that you're running rcli within this project."
+        "It looks like this is the first time that you're running react-construct within this project."
       );
       await createConfigFile();
     }
   } catch (err) {
     boldRedChalk(
-      "ERROR: Please make sure that you're running the rcli commands from the root level of your React project"
+      "ERROR: Please make sure that you're running the react-construct commands from the root level of your React project"
     );
     return process.exit(1);
   }
@@ -99,7 +99,7 @@ const getConfigFilePath = async () => {
 
 const getConfigFileData = () => {
   try {
-    const fileData = readFileSync("./rcli.json");
+    const fileData = readFileSync("./react-construct.json");
     return JSON.parse(fileData);
   } catch (err) {
     boldRedChalk("Failed to fetch config file data, try again");

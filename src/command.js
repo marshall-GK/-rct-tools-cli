@@ -21,7 +21,7 @@ const processCommand = async (args) => {
     const isConfigValid = await verifyConfigFileData();
     // console.log({isConfigValid})
     if (!isConfigValid) {
-      boldRedChalk("Corrupted rcli.json file, re-initiating.");
+      boldRedChalk("Corrupted react-construct.json file, re-initiating.");
       await createConfigFile();
     }
     const configFile = getConfigFileData();
