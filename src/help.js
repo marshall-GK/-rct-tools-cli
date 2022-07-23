@@ -11,9 +11,9 @@ const commands = [
 ];
 
 const usage = [
-  { command: 'fc', Usage: 'rcli fc <component_name> <relative_path>' },
-  { command: 'f', Usage: 'rcli f <file_name> <relative_path>' },
-  { command: 'h', Usage: 'rcli h <component_name> <relative_path>' },
+  { command: 'fc', Usage: 'react-construct fc <component_name> <relative_path>' },
+  { command: 'f', Usage: 'react-construct f <file_name> <relative_path>' },
+  { command: 'h', Usage: 'react-construct h <component_name> <relative_path>' },
 ]
 
 const renderHelp = () => {
