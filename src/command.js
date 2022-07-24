@@ -18,13 +18,7 @@ const package = require('../package.json');
 
 const processCommand = async (args) => {
   try {
-    const isConfigValid = await verifyConfigFileData();
-    // console.log({isConfigValid})
-    if (!isConfigValid) {
-      boldRedChalk("Corrupted react-construct.json file, re-initiating.");
-      await createConfigFile();
-    }
-    const configFile = getConfigFileData();
+    
     const firstCommand = (args[2] || "").toLowerCase();
     const secondCommand = args[3] || "";
     const thirdCommand = (args[4] || "").toLowerCase();
@@ -54,6 +48,13 @@ const processCommand = async (args) => {
         }
       }
     } else if (validateFileCommands(firstCommand)) {
+      const isConfigValid = await verifyConfigFileData();
+      // console.log({isConfigValid})
+      if (!isConfigValid) {
+        boldRedChalk("Corrupted react-construct.json file, re-initiating.");
+        await createConfigFile();
+      }
+      const configFile = getConfigFileData();
       switch (firstCommand) {
         case "fc":
           {

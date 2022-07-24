@@ -57,7 +57,7 @@ Example
 | Boo.tsx | Your main FC file  |
 | Boo.model.tsx | This file will have your business logic  |
 | Boo.view.tsx | Your view or JSX file |
-| Boo.styles.tsx | Your CSS module file |
+| Boo.styles.tsx | Your CSS file |
 | Boo.constants.ts | Here FC constants | 
 
 ------------
