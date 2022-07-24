@@ -1,19 +1,9 @@
-const replace = require("replace");
-const chalk = require("chalk");
-const {
-  getComponentName,
-  createDirectory,
-  copyDirAndFiles,
-  deleteAsset,
-  moveDirAndFiles,
-  boldRedChalk,
-  emptyLog,
-  boldBlueChalk,
-  boldGreenChalk,
-} = require("./utils");
-const { isFileAlreadyPresent } = require("./Validators/validator");
+const replace = require('replace');
+const { getComponentName, copyDirAndFiles, boldRedChalk, emptyLog, boldBlueChalk, boldGreenChalk } = require('./utils');
+const { isFileAlreadyPresent } = require('./Validators/validator');
 
 const createHookFile = (hookName, path, configFile) => {
+  // eslint-disable-next-line no-useless-catch
   try {
     const { useCamelCaseName, isTypescript } = configFile;
     const name = getComponentName(hookName, useCamelCaseName);
@@ -24,12 +14,9 @@ const createHookFile = (hookName, path, configFile) => {
       boldRedChalk(`[Error]: Aborting, ${name}.${extension} already exists.`);
       process.exit(1);
     }
-    copyDirAndFiles(
-      `${__dirname}/Templates/HookTemplate.js`,
-      hookDestinationPath
-    );
+    copyDirAndFiles(`${__dirname}/Templates/HookTemplate.js`, hookDestinationPath);
     replace({
-      regex: "useHook",
+      regex: 'useHook',
       replacement: `use${name}`,
       paths: [hookDestinationPath],
       recursive: true,

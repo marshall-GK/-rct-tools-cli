@@ -1,12 +1,10 @@
-const chalk = require("chalk");
-const package = require("../package.json");
-const { whiteChalk, emptyLog, getAllCommands } = require("./utils");
-const Table = require("easy-table");
+const Table = require('easy-table');
+const { emptyLog, getAllCommands } = require('./utils');
 
 const renderHelp = () => {
-  const table = new Table;
+  const table = new Table();
   const allCommandsObj = getAllCommands();
-  Object.keys(allCommandsObj).forEach(key => {
+  Object.keys(allCommandsObj).forEach((key) => {
     const commandObj = allCommandsObj[key];
     table.cell('Command', key);
     table.cell('Description', commandObj.description);
@@ -14,6 +12,7 @@ const renderHelp = () => {
     table.newRow();
   });
   emptyLog();
+  // eslint-disable-next-line no-console
   console.log(table.toString());
   emptyLog();
 };

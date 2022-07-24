@@ -1,5 +1,5 @@
-const fs = require("fs");
-const { displayError } = require("../utils");
+const fs = require('fs');
+const { displayError } = require('../utils');
 
 const validateName = (name) => {
   const nameRegx = /^[aA-zZ0-9]+$/gim;
@@ -7,11 +7,12 @@ const validateName = (name) => {
 };
 
 const validatePath = (path) => {
+  // eslint-disable-next-line no-useless-escape
   const pathRegx = /^([.]{0,2}[\/]{0,1}(?:[\w])*)([/\w]*)$/gim;
   return path ? pathRegx.test(path) : false;
 };
 
-const validateFileTypeInput = (fileType = "") => {
+const validateFileTypeInput = (fileType = '') => {
   const fileTypeRegx = /^(ts|js|tsx|jsx)$/gm;
   return fileType ? fileTypeRegx.test(fileType) : false;
 };
@@ -25,8 +26,8 @@ const isFileAlreadyPresent = (path) => {
   try {
     return fs.existsSync(path);
   } catch (err) {
-    console.error(err);
     displayError(err);
+    return 0;
   }
 };
 

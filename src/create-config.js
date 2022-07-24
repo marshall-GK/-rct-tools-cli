@@ -1,21 +1,12 @@
-const fs = require("fs");
-const {
-  accessSync,
-  constants,
-  outputFileSync,
-  readFileSync,
-} = require("fs-extra");
-const lodash = require("lodash");
-const chalk = require("chalk");
-const shell = require("child_process");
-const { prompt } = require("inquirer");
-const { boldRedChalk } = require("./utils");
+const { outputFileSync } = require('fs-extra');
+const { prompt } = require('inquirer');
+const { boldRedChalk } = require('./utils');
 
-const getQuestions = () => ([
+const getQuestions = () => [
   {
-    type: "confirm",
-    name: "isTypescript",
-    message: "Does this project use TypeScript?",
+    type: 'confirm',
+    name: 'isTypescript',
+    message: 'Does this project use TypeScript?',
   },
   // {
   //   type: "confirm",
@@ -34,22 +25,22 @@ const getQuestions = () => ([
   //   name: "useCamelCaseName",
   //   message: "Do you want to use camelCase naming convention?",
   // },
-]);
+];
 
+// eslint-disable-next-line consistent-return
 const checkConfigFileData = (fileData) => {
   if (fileData) {
     try {
       if (Array.isArray(fileData)) {
-        throw new Error("react-construct.json file should have json data");
+        throw new Error('react-construct.json file should have json data');
       }
-      const keys = Object.keys(fileData);
-      return fileData
+      return fileData;
     } catch (err) {
       boldRedChalk(err);
       return process.exit(1);
     }
   } else {
-    boldRedChalk("No data found");
+    boldRedChalk('No data found');
     process.exit(1);
   }
 };
@@ -57,16 +48,16 @@ const checkConfigFileData = (fileData) => {
 const createConfigFile = async () => {
   try {
     const obj = await prompt(getQuestions());
-    outputFileSync('react-construct.json', JSON.stringify(obj, null, 2))
+    outputFileSync('react-construct.json', JSON.stringify(obj, null, 2));
     return true;
   } catch (err) {
-    boldRedChalk(err)
+    boldRedChalk(err);
     return false;
   }
-}
+};
 
 module.exports = {
   checkConfigFileData,
   createConfigFile,
-  getQuestions
+  getQuestions,
 };

@@ -1,11 +1,6 @@
 const { argv } = process;
-const chalk = require("chalk");
-const { boldRedChalk, boldGreenChalk } = require("../utils");
-const {
-  validateName,
-  validatePath,
-} = require("./validator");
-
+const { boldRedChalk } = require('../utils');
+const { validateName, validatePath } = require('./validator');
 
 // boldGreenChalk("==============Rule check started===========");
 
@@ -14,32 +9,28 @@ const funcCompRule = () => {
   const args = argv;
   try {
     if (args && args.length >= totalMinArgsLenghtRequired && args.length <= 5) {
-      const command = args[2];
+      // const command = args[2];
       const componentName = args[3];
-      const dirPath = args[4] || "./";
-      if (
-        validateName(componentName) &&
-        dirPath ? validatePath(dirPath) : true
-      ) {
+      const dirPath = args[4] || './';
+      if (validateName(componentName) && dirPath ? validatePath(dirPath) : true) {
         return true;
-      } else {
-        throw new Error("Invalid component name or component path.");
       }
+      throw new Error('Invalid component name or component path.');
     } else {
-      throw new Error("Check your command.");
+      throw new Error('Check your command.');
     }
   } catch (err) {
-    boldRedChalk(err)
+    boldRedChalk(err);
     return false;
   }
 };
 
 const funcRule = () => {
-  return "";
+  return '';
 };
 
 const hookRule = () => {
-  return "";
+  return '';
 };
 
 module.exports = {

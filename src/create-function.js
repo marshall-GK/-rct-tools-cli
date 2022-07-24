@@ -1,19 +1,9 @@
-const replace = require("replace");
-const chalk = require("chalk");
-const {
-  getComponentName,
-  createDirectory,
-  copyDirAndFiles,
-  deleteAsset,
-  moveDirAndFiles,
-  boldRedChalk,
-  emptyLog,
-  boldGreenChalk,
-  boldBlueChalk,
-} = require("./utils");
-const { isFileAlreadyPresent } = require("./Validators/validator");
+const replace = require('replace');
+const { getComponentName, copyDirAndFiles, boldRedChalk, emptyLog, boldGreenChalk, boldBlueChalk } = require('./utils');
+const { isFileAlreadyPresent } = require('./Validators/validator');
 
 const createFunctionFile = (functionName, path, configFile) => {
+  // eslint-disable-next-line no-useless-catch
   try {
     const { useCamelCaseName, isTypescript } = configFile;
     const name = getComponentName(functionName, useCamelCaseName);
@@ -21,17 +11,14 @@ const createFunctionFile = (functionName, path, configFile) => {
     const functionDestinationPath = `${path}/${name}.${extension}`;
 
     if (isFileAlreadyPresent(functionDestinationPath)) {
-      boldRedChalk(`[Error]: Aborting, ${name}.${extension} file already exists.`)
+      boldRedChalk(`[Error]: Aborting, ${name}.${extension} file already exists.`);
       process.exit(1);
     }
 
-    copyDirAndFiles(
-      `${__dirname}/Templates/FunctionTemplate.js`,
-      functionDestinationPath
-    );
+    copyDirAndFiles(`${__dirname}/Templates/FunctionTemplate.js`, functionDestinationPath);
 
     replace({
-      regex: "FunctionTemplate",
+      regex: 'FunctionTemplate',
       replacement: name,
       paths: [functionDestinationPath],
       recursive: true,
@@ -39,7 +26,7 @@ const createFunctionFile = (functionName, path, configFile) => {
     });
 
     emptyLog();
-    boldBlueChalk(`[Path]: ${functionDestinationPath}`)
+    boldBlueChalk(`[Path]: ${functionDestinationPath}`);
     boldGreenChalk(`${name}.${extension} created.`);
   } catch (err) {
     throw err;

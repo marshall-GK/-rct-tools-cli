@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require("../lib/react-construct");
+require('../lib/react-construct');
