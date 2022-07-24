@@ -19,7 +19,8 @@ To use **react-construct** just type `react-construct <commands>` in your termin
 | fc | For functional components |
 | f | For simple function file |
 | h | For hook file |
-| --help or -h | For help |
+| help | For help |
+| v | For version |
 
 
 ------------

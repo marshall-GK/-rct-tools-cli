@@ -30,22 +30,22 @@ const processCommand = async (args) => {
     const thirdCommand = (args[4] || "").toLowerCase();
     if (validateSingleCommands(firstCommand)) {
       switch (firstCommand) {
-        case "--help":
+        case "help":
           {
             renderHelp();
           }
           break;
-        case "-h":
-          {
-            renderHelp();
-          }
-          break;
+        // case "-h":
+        //   {
+        //     renderHelp();
+        //   }
+        //   break;
         case "--find":
           {
             getFilePath();
           }
           break;
-        case '-v': {
+        case 'v': {
           boldRedChalk(`v${package.version}`);
         }
           break;

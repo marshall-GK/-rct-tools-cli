@@ -31,8 +31,8 @@ const isFileAlreadyPresent = (path) => {
 };
 
 const validateSingleCommands = (flag) => {
-  const flagRegx = /^--(help|find|)$/gm;
-  const tinyFlagRegx = /^-(h|v)$/gm;
+  const flagRegx = /^(help|find|)$/gm;
+  const tinyFlagRegx = /^(v)$/gm;
   return flag ? flagRegx.test(flag) || tinyFlagRegx.test(flag) : false;
 };
 
