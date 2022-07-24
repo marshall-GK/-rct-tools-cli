@@ -1,6 +1,6 @@
 {
   "name": "react-construct",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A cli based useful package for react app to create components and other files.",
   "main": "./lib/react-construct.js",
   "bin": {
