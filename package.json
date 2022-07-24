@@ -2,9 +2,9 @@
   "name": "react-construct",
   "version": "0.0.4",
   "description": "A cli based useful package for react app to create components and other files.",
-  "main": "./lib/index.js",
+  "main": "./lib/react-construct.js",
   "bin": {
-    "react-contruct": "bin/index.js"
+    "react-construct": "bin/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,7 +15,7 @@
   "author": "Gaurav Kumar (https://github.com/marshall-GK)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/marshall-GK/react-construct"
+    "url": "git+https://github.com/marshall-GK/react-construct.git"
   },
   "keywords": [
     "cli",
@@ -40,5 +40,6 @@
   "homepage": "https://github.com/marshall-GK/react-construct#readme",
   "directories": {
     "lib": "lib"
-  }
+  },
+  "devDependencies": {}
 }
