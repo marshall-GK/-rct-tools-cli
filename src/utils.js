@@ -2,8 +2,6 @@ const fs = require('fs');
 const chalk = require('chalk');
 const shell = require('child_process');
 
-const allCommands = require('./allcomands.json');
-
 const { platform } = process;
 
 const boldRedChalk = (data) => {
@@ -143,11 +141,6 @@ const moveDirAndFiles = (source, destination) => {
   }
 };
 
-const getAllCommands = () => {
-  return { ...allCommands };
-  // console.log(allCommandsObj);
-};
-
 module.exports = {
   getComponentName,
   createDirectory,
@@ -165,5 +158,4 @@ module.exports = {
   boldCyanChalk,
   whiteChalk,
   getCamleCase,
-  getAllCommands,
 };

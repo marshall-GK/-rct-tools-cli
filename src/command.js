@@ -1,39 +1,26 @@
-const createComponent = require('./create-component');
-const createHookFile = require('./create-hook');
-const createFunctionFile = require('./create-function');
-const getFilePath = require('./find');
 const { validateFileCommands, validateSingleCommands } = require('./Validators/validator');
-const { renderHelp } = require('./help');
+// const getFilePath = require('./find');
+// const renderHelp = require('./help');
 const { funcCompRule } = require('./Validators/rules');
 const { boldRedChalk } = require('./utils');
-const { verifyConfigFileData, getConfigFileData } = require('./find');
 const { createConfigFile } = require('./create-config');
-const npmPackage = require('../package.json');
+const { verifyConfigFileData, getConfigFileData } = require('./find');
+const { getAllCommandsMappedRun } = require('./allcomands');
 
 const processCommand = async (args) => {
+  const allCommandsObj = getAllCommandsMappedRun();
   try {
     const firstCommand = (args[2] || '').toLowerCase();
     const secondCommand = args[3] || '';
     const thirdCommand = (args[4] || '').toLowerCase();
+    // eslint-disable-next-line no-console
+    console.log({ args });
     if (validateSingleCommands(firstCommand)) {
-      switch (firstCommand) {
-        case 'help':
-          renderHelp();
-          break;
-        // case "-h":
-        //   {
-        //     renderHelp();
-        //   }
-        //   break;
-        case '--find':
-          getFilePath();
-          break;
-        case 'v':
-          boldRedChalk(`v${npmPackage.version}`);
-          break;
-        default: {
-          throw new Error('No matching Command');
-        }
+      if (allCommandsObj[firstCommand]) {
+        console.log(allCommandsObj[firstCommand]);
+        allCommandsObj[firstCommand].run();
+      } else {
+        throw new Error('No matching Command');
       }
     } else if (validateFileCommands(firstCommand)) {
       const isConfigValid = await verifyConfigFileData();
@@ -43,19 +30,14 @@ const processCommand = async (args) => {
         await createConfigFile();
       }
       const configFile = getConfigFileData();
-      switch (firstCommand) {
-        case 'fc':
-          if (funcCompRule()) createComponent(secondCommand, thirdCommand, configFile);
-          break;
-        case 'h':
-          createHookFile(secondCommand, thirdCommand, configFile);
-          break;
-        case 'f':
-          createFunctionFile(secondCommand, thirdCommand, configFile);
-          break;
-        default: {
-          throw new Error('Invalid file command');
+      if (allCommandsObj[firstCommand]) {
+        if (firstCommand === 'fc' && funcCompRule()) {
+          allCommandsObj[firstCommand].run(secondCommand, thirdCommand, configFile);
+        } else {
+          allCommandsObj[firstCommand].run(secondCommand, thirdCommand, configFile);
         }
+      } else {
+        throw new Error('Invalid file command');
       }
     } else {
       throw new Error('Use following commands');
@@ -63,7 +45,7 @@ const processCommand = async (args) => {
     process.exit(0);
   } catch (err) {
     boldRedChalk(err);
-    renderHelp();
+    // allCommandsObj.help.run();
     process.exit(1);
   }
 };
