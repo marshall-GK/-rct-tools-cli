@@ -12,7 +12,7 @@ const {
 } = require("fs-extra");
 const replace = require("replace");
 
-const allCommands = require('./allcomands');
+const allCommands = require('./allcomands.json');
 
 const { platform } = process;
 
@@ -89,14 +89,15 @@ const copyDirAndFiles = (source, destination, isRecursive = true) => {
     switch (platform) {
       case "win32":
         {
-          shell.execSync(`copy ${newSrc} ${newDest}`);
+          shell.execSync(`copy "${newSrc}" "${newDest}"`);
         }
         break;
       default: {
-        shell.execSync(`cp${isRecursive ? " -r" : ""} ${newSrc} ${newDest}`);
+        shell.execSync(`cp${isRecursive ? " -r" : ""} "${newSrc}" "${newDest}"`);
       }
     }
   } catch (err) {
+    deleteAsset(destination);
     displayError(err);
   }
 };
@@ -108,11 +109,11 @@ const moveDirAndFiles = (source, destination) => {
     switch (process.platform) {
       case "win32":
         {
-          shell.execSync(`move ${newSrc} ${newDest}`);
+          shell.execSync(`move "${newSrc}" "${newDest}"`);
         }
         break;
       default: {
-        shell.execSync(`mv ${newSrc} ${newDest}`);
+        shell.execSync(`mv "${newSrc}" "${newDest}"`);
       }
     }
   } catch (err) {
@@ -126,11 +127,11 @@ const deleteAsset = (path) => {
     switch (process.platform) {
       case "win32":
         {
-          shell.execSync(`rd /s /q ${newPath}`);
+          shell.execSync(`rd /s /q "${newPath}"`);
         }
         break;
       default: {
-        shell.execSync(`rm -rf ${newPath}`);
+        shell.execSync(`rm -rf "${newPath}"`);
       }
     }
   } catch (err) {
@@ -156,8 +157,8 @@ const modifyPathUrl = (path) => {
 };
 
 const getAllCommands = () => {
-  const allCommandsObj = Object.create(allCommands);
-  console.log(allCommandsObj);
+  return Object.assign({}, allCommands);
+  // console.log(allCommandsObj);
 }
 
 module.exports = {

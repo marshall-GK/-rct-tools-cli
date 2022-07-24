@@ -39,11 +39,11 @@ const createDir = (component, path, souceDir, configFile) => {
   const { useCamelCaseName } = configFile;
   const name = getComponentName(component, useCamelCaseName);
   const currentDirPath = process.cwd();
-  const dirPath = modifyPathUrl(`${currentDirPath}/${path}/${name}`);
+  const dirPath = modifyPathUrl(`${currentDirPath}/${path && path !== './' ? path : ''}${name}`);
   try {
     createDirectory(dirPath);
     copyDirAndFiles(
-      modifyPathUrl(`${__dirname}/Templates/${souceDir}/*`),
+      modifyPathUrl(`${__dirname}/Templates/${souceDir}/.`),
       dirPath
     );
     createFile(dirPath, name, souceDir, configFile);

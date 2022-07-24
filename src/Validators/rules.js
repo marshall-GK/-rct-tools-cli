@@ -10,16 +10,16 @@ const {
 // boldGreenChalk("==============Rule check started===========");
 
 const funcCompRule = () => {
-  const totalArgsLenghtRequired = 5;
+  const totalMinArgsLenghtRequired = 4;
   const args = argv;
   try {
-    if (args && args.length === totalArgsLenghtRequired) {
+    if (args && args.length >= totalMinArgsLenghtRequired && args.length <= 5) {
       const command = args[2];
       const componentName = args[3];
       const dirPath = args[4] || "./";
       if (
         validateName(componentName) &&
-        validatePath(dirPath)
+        dirPath ? validatePath(dirPath) : true
       ) {
         return true;
       } else {
