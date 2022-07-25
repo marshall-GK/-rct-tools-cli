@@ -5,7 +5,7 @@ const { funcCompRule } = require('./Validators/rules');
 const { boldRedChalk } = require('./utils');
 const { createConfigFile } = require('./create-config');
 const { verifyConfigFileData, getConfigFileData } = require('./find');
-const { getAllCommandsMappedRun } = require('./allcomands');
+const getAllCommandsMappedRun = require('./allCommandsMappedRun');
 
 const processCommand = async (args) => {
   const allCommandsObj = getAllCommandsMappedRun();
@@ -14,10 +14,9 @@ const processCommand = async (args) => {
     const secondCommand = args[3] || '';
     const thirdCommand = (args[4] || '').toLowerCase();
     // eslint-disable-next-line no-console
-    console.log({ args });
+    // console.log({ args });
     if (validateSingleCommands(firstCommand)) {
       if (allCommandsObj[firstCommand]) {
-        console.log(allCommandsObj[firstCommand]);
         allCommandsObj[firstCommand].run();
       } else {
         throw new Error('No matching Command');
@@ -42,10 +41,10 @@ const processCommand = async (args) => {
     } else {
       throw new Error('Use following commands');
     }
-    process.exit(0);
+    // process.exit(0);
   } catch (err) {
     boldRedChalk(err);
-    // allCommandsObj.help.run();
+    allCommandsObj.help.run();
     process.exit(1);
   }
 };

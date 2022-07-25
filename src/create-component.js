@@ -78,7 +78,6 @@ const createDir = (component, path, souceDir, configFile) => {
 };
 
 const createComponent = (component, path, configFile) => {
-  console.log({ component, path, configFile });
   const { isTypescript } = configFile;
   const souceDir = isTypescript ? fileContentDir.tsx : fileContentDir.jsx;
   createDir(component, path, souceDir, configFile);
